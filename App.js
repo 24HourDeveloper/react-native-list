@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, ScrollView } from "react-native";
 
 export default function App() {
   const people = [
@@ -10,23 +10,26 @@ export default function App() {
     "Mark Zuckerberg",
     "Linus Torvalds",
     "Brendan Eich",
+    "Elon Musk",
+    "Thomas Edison",
   ];
   return (
-    <View style={{ marginTop: 30 }}>
+    <ScrollView style={styles.container}>
       {people.map((person, index) => (
-        <Text style={{ fontSize: 25, paddingVertical: 40 }} key={index}>
+        <Text style={styles.textStyle} key={index}>
           {person}
         </Text>
       ))}
-    </View>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
+    marginTop: 30,
+  },
+  textStyle: {
+    fontSize: 25,
+    paddingVertical: 40,
   },
 });
