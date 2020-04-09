@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, View, ScrollView } from "react-native";
+import { StyleSheet, Text, View, ScrollView, FlatList } from "react-native";
 
 export default function App() {
   const people = [
@@ -14,13 +14,13 @@ export default function App() {
     "Thomas Edison",
   ];
   return (
-    <ScrollView style={styles.container}>
-      {people.map((person, index) => (
-        <Text style={styles.textStyle} key={index}>
-          {person}
-        </Text>
-      ))}
-    </ScrollView>
+    <View style={styles.container}>
+      <FlatList
+        data={people}
+        renderItem={({ item }) => <Text style={styles.textStyle}>{item}</Text>}
+        keyExtractor={(item) => item.toString()}
+      />
+    </View>
   );
 }
 
